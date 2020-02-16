@@ -7,6 +7,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
+import com.bumptech.glide.Glide
 import com.weatherapp.databinding.ActivityMain2Binding
 import com.weatherapp.model.WeatherData
 import kelvinToCelsius
@@ -86,5 +87,6 @@ class MainActivity : AppCompatActivity() {
         tv_error_message.visibility = View.GONE
 
         binding.viewmodel = weatherData
+        Glide.with(this).load(weatherData.weatherConditionIconUrl).into(binding.layoutWeatherBasic.ivWeatherCondition)
     }
 }
