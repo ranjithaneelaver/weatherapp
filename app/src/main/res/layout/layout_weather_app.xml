@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout>
+
+    <data>
+
+        <variable
+            name="viewmodel"
+            type="com.weatherapp.model.WeatherData" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="16dp">
+
+
+        <include
+            android:id="@+id/layout_weather_basic"
+            layout="@layout/layout_weather_basic_info"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toTopOf="parent"
+            app:summary="@{viewmodel}" />
+
+        <include
+            android:id="@+id/layout_weather_additional"
+            layout="@layout/layout_weather_additional_info"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            app:weatherinfo="@{viewmodel}"
+            app:layout_constraintTop_toBottomOf="@id/layout_weather_basic" />
+
+        <include
+            android:id="@+id/layout_sunset_sunrise"
+            layout="@layout/layout_sunrise_sunset"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:visibility="gone"
+            app:layout_constraintBottom_toBottomOf="parent" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="2dp"
+            android:layout_marginTop="10dp"
+            android:background="@android:color/darker_gray"
+            app:layout_constraintTop_toBottomOf="@+id/layout_weather_additional" />
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>
